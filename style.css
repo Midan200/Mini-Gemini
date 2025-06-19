@@ -1,0 +1,295 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* פונט מודרני ונקי */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #e0f2f7 0%, #cce0e9 100%); /* רקע מעבר צבע עדין */
+    color: #333;
+    overflow: hidden; /* למנוע גלילה אם יש אלמנטים גדולים */
+}
+
+#login-container {
+    background-color: #ffffff;
+    padding: 40px; /* הגדלת ריפוד */
+    border-radius: 12px; /* פינות עגולות יותר */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* צל עמוק ורך יותר */
+    text-align: center;
+    width: 380px; /* רוחב מעט גדול יותר */
+    max-width: 90%;
+    animation: fadeIn 0.8s ease-out; /* אנימציית הופעה עדינה */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#login-container h1 {
+    color: #0d47a1; /* כחול כהה יותר, אלגנטי */
+    margin-bottom: 30px; /* רווח גדול יותר מתחת לכותרת */
+    font-size: 28px; /* גודל כותרת מעט גדול יותר */
+    font-weight: 600; /* עובי פונט בינוני */
+}
+
+.input-group {
+    margin-bottom: 25px; /* רווח גדול יותר בין קבוצות קלט */
+    text-align: right; /* יישור לימין עבור RTL */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px; /* רווח גדול יותר מתחת לתווית */
+    font-weight: 500; /* עובי פונט בינוני */
+    color: #555;
+    font-size: 15px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: calc(100% - 24px); /* רוחב עם התחשבות בריפוד */
+    padding: 12px; /* ריפוד גדול יותר לשדות */
+    border: 1px solid #cdd; /* גבול עדין יותר */
+    border-radius: 8px; /* פינות עגולות לשדות */
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* אנימציה למעבר */
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: #4285f4; /* גבול כחול בפוקוס */
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2); /* צל הילה כחול בפוקוס */
+    outline: none; /* הסרת קו מתאר ברירת מחדל */
+}
+
+button {
+    background-color: #4285f4; /* כחול גוגל עמוק */
+    color: white;
+    padding: 14px 25px; /* ריפוד גדול יותר לכפתור */
+    border: none;
+    border-radius: 8px; /* פינות עגולות לכפתור */
+    font-size: 19px; /* גודל פונט גדול יותר בכפתור */
+    font-weight: 600; /* עובי פונט בינוני */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* אנימציית מעבר וקנה מידה */
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 0.5px; /* רווח אותיות עדין */
+}
+
+button:hover {
+    background-color: #3367d6; /* כחול כהה יותר בריחוף */
+    transform: translateY(-2px); /* אפקט קל של הרמה בריחוף */
+}
+
+button:active {
+    transform: translateY(0); /* חזרה למצב רגיל בלחיצה */
+}
+
+.error-message {
+    color: #d32f2f; /* אדום כהה יותר לשגיאות */
+    margin-top: 18px; /* רווח גדול יותר מעל הודעת שגיאה */
+    font-size: 14.5px; /* גודל פונט מעט גדול יותר */
+    font-weight: 500;
+}
+
+/* Dashboard Styles (will be visible after login) */
+#dashboard-container {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Stacks header, main */
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f9fa; /* רקע בהיר יותר */
+}
+
+#dashboard-container header {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 25px; /* ריפוד גדול יותר */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* צל רך יותר */
+}
+
+#dashboard-container header h1 {
+    margin: 0;
+    font-size: 26px; /* גודל כותרת גדול יותר */
+    font-weight: 600;
+}
+
+#logout-button {
+    background-color: #dc3545; /* אדום לכפתור התנתקות */
+    width: auto; /* רוחב אוטומטי */
+    padding: 8px 18px; /* ריפוד קטן יותר */
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#logout-button:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+#dashboard-container main {
+    display: flex; /* Sidebar and main content */
+    flex-grow: 1;
+    padding: 25px; /* ריפוד גדול יותר */
+    gap: 25px; /* רווח גדול יותר בין אלמנטים */
+}
+
+.sidebar {
+    background-color: #ffffff;
+    padding: 25px; /* ריפוד גדול יותר */
+    border-radius: 10px; /* פינות עגולות יותר */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* צל רך יותר */
+    width: 280px; /* רוחב גדול יותר לסיידבאר */
+    flex-shrink: 0;
+}
+
+.sidebar h2, .sidebar h3 {
+    color: #0d47a1;
+    margin-top: 0;
+    margin-bottom: 20px; /* רווח גדול יותר */
+    font-size: 22px; /* גודל כותרת גדול יותר */
+    font-weight: 600;
+}
+
+#satellite-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+#satellite-list li {
+    margin-bottom: 12px;
+}
+
+#satellite-list label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #444;
+}
+
+#satellite-list input[type="checkbox"] {
+    margin-left: 10px; /* For RTL */
+    transform: scale(1.3); /* הגדלת צ'קבוקס */
+    accent-color: #4285f4; /* צבע כחול לצ'קבוקס */
+}
+
+.time-controls {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.time-controls button, .time-controls input {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.time-controls label {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+.time-controls input[type="date"] {
+    padding: 12px;
+    border: 1px solid #cdd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.time-controls input[type="date"]:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+    outline: none;
+}
+
+
+#get-data-button {
+    margin-top: 20px;
+    background-color: #17a2b8; /* Info blue */
+}
+
+#get-data-button:hover {
+    background-color: #117a8b;
+}
+
+#realtime-button {
+    background-color: #007bff; /* כחול בסיסי */
+    margin-top: 20px; /* רווח מעל כפתור */
+}
+
+#realtime-button:hover {
+    background-color: #0056b3;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#map-container {
+    background-color: #e9ecef;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 40px;
+    min-height: 350px; /* גובה מינימלי גדול יותר */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #6c757d;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* צל עדין */
+}
+
+.data-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 25px;
+}
+
+.panel {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.panel h3 {
+    color: #0d47a1;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#metric-data {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+#alerts-list {
+    list-style: disc; /* Bullet points for alerts */
+    padding-right: 25px; /* For RTL */
+    margin: 0;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+#alerts-list li {
+    margin-bottom: 8px;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Gemini Satellite Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <h1>התחברות ל-Mini Gemini</h1>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="username">שם משתמש:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">סיסמה:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">התחבר</button>
+            <p id="login-message" class="error-message"></p>
+        </form>
+    </div>
+
+    <div id="dashboard-container" style="display: none;">
+        <header>
+            <h1>לוח בקרה - Mini Gemini</h1>
+            <button id="logout-button">התנתק</button>
+        </header>
+        <main>
+            <div class="sidebar">
+                <h2>בחר לוויינים</h2>
+                <ul id="satellite-list">
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="Maxar"> Maxar Technologies (אופטי)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="Planet Labs"> Planet Labs (אופטי)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="Capella Space"> Capella Space (מכ"ם)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="ICEYE"> ICEYE (מכ"ם)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="SWOT"> SWOT (מים וטופוגרפיה)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="NISAR"> NISAR (מכ"ם אדמה מתקדם)
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" data-satellite="Sentinel"> Sentinel (ממשלתי/סביבתי)
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="time-controls">
+                    <h3>נתונים היסטוריים</h3>
+                    <label for="history-date">בחר תאריך:</label>
+                    <input type="date" id="history-date">
+                    <button id="get-data-button">קבל נתונים</button>
+                </div>
+
+                <button id="realtime-button">נתונים בזמן אמת</button>
+            </div>
+
+            <div class="main-content">
+                <div id="map-container">
+                    <p>המפה תוצג כאן לאחר קבלת נתונים.</p>
+                </div>
+                <div class="data-panels">
+                    <div class="panel">
+                        <h3>מדדים ותובנות</h3>
+                        <p id="metric-data">נתוני מדדים יופיעו כאן.</p>
+                    </div>
+                    <div class="panel">
+                        <h3>התראות</h3>
+                        <ul id="alerts-list">
+                            <li>התראות יופיעו כאן.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
